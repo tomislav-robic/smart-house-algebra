@@ -1,0 +1,24 @@
+<app-header></app-header>
+<mat-card>
+    <mat-card-header><h3>Settings</h3></mat-card-header>
+    <mat-card-content>
+        <div><h4>State : {{settings.power_button}}</h4></div>
+        <div><h4>Interval:  {{settings.interval}}</h4></div>
+    </mat-card-content>
+    <mat-card-actions>
+        <div *ngIf="settings.power_button" >
+            <button (click)="turnOff()" style="margin-left: 3%;" type="button" class="btn btn-danger" >Off</button>
+        </div>
+        <div  *ngIf="!settings.power_button" >
+            <button (click)="turnOn()" style="margin-left: 3%;" type="button" class="btn btn-primary" >On</button>
+        </div>
+        <div style="margin-left: 1%; margin-top: 2%;" class="form-group">
+            <form #f="ngForm" (ngSubmit)="changeInterval(f)">
+                <label>New interval</label>
+                <input style="width: 15%;" ngModel name="newInterval" required class="form-control"  placeholder="Enter new interval">
+                <button style="margin-top: 1%;"  class="btn btn-primary" type="submit">Change interval</button>
+            </form>
+        </div>
+    </mat-card-actions>
+</mat-card>
+
