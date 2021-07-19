@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import {BehaviorSubject} from 'rxjs'
 import { Router } from '@angular/router';
 
@@ -15,7 +15,11 @@ export class LoginService {
 
   Login(credentials:string) {
     var url = this.private_url + credentials;
-    this.http.get<boolean>(url).subscribe(data => {
+    this.http.get<boolean>(url, {
+      headers: new HttpHeaders ({
+        'Access-Control-Allow-Origin' : 'https://smart-house-api.herokuapp.com',
+        'Content-Type': 'application/json'
+      })}).subscribe(data => {
       this.loggedIn = data;
       if (data == true) {
         this.router.navigate(['/settings']);
