@@ -1,6 +1,10 @@
 {
   "hosting": {
     "public": "dist/smart-house-algebra",
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+    } ],
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import {BehaviorSubject} from 'rxjs'
 import { Router } from '@angular/router';
 
 @Injectable({providedIn:'root'})
@@ -22,7 +21,10 @@ export class LoginService {
       })}).subscribe(data => {
       this.loggedIn = data;
       if (data == true) {
+        localStorage.setItem("l", "1");
         this.router.navigate(['/settings']);
+      } else {
+        localStorage.removeItem("l");
       }})
   }
 }

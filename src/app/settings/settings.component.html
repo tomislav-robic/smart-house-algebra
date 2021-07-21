@@ -15,7 +15,7 @@
         <div style="margin-left: 1%; margin-top: 2%;" class="form-group">
             <form #f="ngForm" (ngSubmit)="changeInterval(f)">
                 <label>New interval</label>
-                <input style="width: 15%;" ngModel name="newInterval" required class="form-control"  placeholder="Enter new interval">
+                <input style="width: 15%;" ngModel name="newInterval"  type="number" required class="form-control"  placeholder="Enter new interval">
                 <button style="margin-top: 1%;"  class="btn btn-primary" type="submit">Change interval</button>
             </form>
         </div>

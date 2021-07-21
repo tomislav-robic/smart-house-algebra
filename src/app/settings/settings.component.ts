@@ -18,8 +18,6 @@ export class SettingsComponent implements OnInit {
     this._settingsService.getSettings().subscribe(data => {
       this.settings.power_button = data.power_button;
       this.settings.interval = data.interval;
-      console.log(data);
-      console.log(this.settings);
     })
   }
 

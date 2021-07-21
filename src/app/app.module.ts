@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -18,12 +17,17 @@ import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from './auth-guard';
 import { HeaderComponent } from './header/header.component';
 import { DataComponent } from './data/data.component';
+import { SensorsDataTableComponent } from './sensors-data-table/sensors-data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {  NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-  { path: 'data', component: DataComponent, canActivate: [AuthGuard] }
+  { path: 'data', component: SensorsDataTableComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -32,7 +36,8 @@ const routes: Routes = [
     LoginComponent,
     SettingsComponent,
     HeaderComponent,
-    DataComponent
+    DataComponent,
+    SensorsDataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,11 @@ const routes: Routes = [
     MatToolbarModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    NgxMatDatetimePickerModule
   ],
   providers: [LoginComponent],
   bootstrap: [AppComponent]
