@@ -65,7 +65,6 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
         data.moist = response[key].moist;
         data.data_time = response[key].data_time;
 
-
         if ( localStorage.getItem("sort_d1")) {
           let a = data.data_time.substring(0,16);
           if ( a > this.sort_d1 && a < this.sort_d2) {
