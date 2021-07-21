@@ -14,9 +14,9 @@ export class SensorsDataService {
   }
 
   getData() : Observable<SensorsData[]> {
-    return     this.http.get<SensorsData[]>('http://localhost:8080/api/sensorsData', {
+    return     this.http.get<SensorsData[]>('https://smart-house-api.herokuapp.com/api/sensorsData', {
       headers: new HttpHeaders ({
-        'Access-Control-Allow-Origin' : 'http://localhost:8080',
+        'Access-Control-Allow-Origin' : 'https://smart-house-api.herokuapp.com',
         'Content-Type': 'application/json'
       })})
 
