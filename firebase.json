@@ -1,17 +1,28 @@
 {
-  "firebase": "smart-house-algebra",
-  "public": "dist",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ],
-  "rewrites": [{
-    "source": "/public/**",
-    "destination": "/public.html"
+  "functions": {
+      "predeploy": [
+          "npm --prefix \"%RESOURCE_DIR%\" run lint"
+      ],
+      "source": "functions"
   },
-  {
-    "source": "**",
-    "destination": "/index.html"
-  }]
-}
+  "hosting": {
+      "public": "dist/smart-house-algebra",
+      "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+      ],
+      "rewrites": [{
+              "source": "/public/**",
+              "destination": "/public.html"
+          },
+          {
+              "source": "**",
+              "destination": "/index.html"
+          }
+      ],
+      "storage": {
+          "rules": "storage.rules"
+      }
+  }
+  }
