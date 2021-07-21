@@ -1,14 +1,17 @@
 {
-  "hosting": {
-    "public": "dist/smart-house-algebra",
-    "rewrites": [ {
-      "source": "**",
-      "destination": "/index.html"
-    } ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+  "firebase": "smart-house-algebra",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "rewrites": [{
+    "source": "/public/**",
+    "destination": "/public.html"
+  },
+  {
+    "source": "**",
+    "destination": "/index.html"
+  }]
 }
