@@ -67,7 +67,8 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
 
 
         if ( localStorage.getItem("sort_d1")) {
-          if ( data.data_time > this.sort_d1 && data.data_time < this.sort_d2) {
+          let a = data.data_time.substring(0,16);
+          if ( a > this.sort_d1 && a < this.sort_d2) {
             data.data_time = data.data_time.replace('T', ", ")
             data.data_time = data.data_time.substring(0, 20)
             this.data.push(data);
@@ -91,7 +92,6 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
         this.data = this.data.filter(s=> s.data_time > this.sort_d1.replace('T', ", ") && s.data_time < this.sort_d2.replace('T', ", ") )
       }
 
-      console.log(this.data);
       this.dataSource.data = this.data;
     });
 
@@ -118,7 +118,6 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
     window.location.reload();
   }
   addFilter_t() {
-    console.log(this.sort_d1);
 
     if (this.sort_t1 != null || this.sort_t2 != null ) {
 
