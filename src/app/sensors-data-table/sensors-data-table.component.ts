@@ -202,7 +202,7 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
       localStorage.setItem("sort_d2", this.sort_d2);
       this.readonly_d = true;
 
-      //window.location.reload();
+      window.location.reload();
     }
   }
 }
