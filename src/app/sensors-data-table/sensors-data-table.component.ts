@@ -128,7 +128,6 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
 
       if (this.sort_t2 == null) {
         this.sort_t2 = 999;
-        console.log( this.sort_t2)
       }
 
       localStorage.setItem("sort_t1", this.sort_t1);
@@ -159,7 +158,6 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
 
       if (this.sort_m2 == null) {
         this.sort_m2 = 999;
-        console.log( this.sort_m2)
       }
 
       localStorage.setItem("sort_m1", this.sort_m1);
@@ -180,9 +178,6 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
   }
 
   addFilter_d() {
-
-    console.log(this.sort_d1);
-    console.log(this.sort_d2);
     
 
     if (this.sort_d1 != null || this.sort_d2 != null ) {
@@ -194,7 +189,6 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
 
       if (this.sort_d2 == null) {
         this.sort_d2 = '9999-01-01T12:00';
-        console.log( this.sort_d2)
       }
 
       localStorage.setItem("sort_d1", this.sort_d1);
