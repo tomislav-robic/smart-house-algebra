@@ -2,6 +2,14 @@
     <mat-card fxFlex="25">
         <mat-toolbar color = "primary">Smart house - Login</mat-toolbar>
         <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" fxLayoutAlign = "stretch" fxLayout="column">
+          <div style="display: flex; justify-content: center;">
+            <mat-spinner *ngIf="showSpinner"></mat-spinner>
+          </div>
+          
+          <div *ngIf="wrongLogin" class="alert alert-danger" role="alert">
+            Wrong username or password !
+          </div>
+
             <mat-form-field>
               <input matInput placeholder="Username" ngModel name="username" required>
             </mat-form-field>

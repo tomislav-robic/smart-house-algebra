@@ -22,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {  NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -54,7 +55,8 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    NgxMatDatetimePickerModule
+    NgxMatDatetimePickerModule,
+    MatProgressSpinnerModule
   ],
   providers: [LoginComponent],
   bootstrap: [AppComponent]

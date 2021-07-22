@@ -66,7 +66,7 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
         data.data_time = response[key].data_time;
 
         if ( localStorage.getItem("sort_d1")) {
-          let a = data.data_time.substring(0,16);
+          let a = data.data_time.substring(0,19);
           if ( a > this.sort_d1 && a < this.sort_d2) {
             data.data_time = data.data_time.replace('T', ", ")
             data.data_time = data.data_time.substring(0, 20)
@@ -80,15 +80,11 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
 
       }
       if (localStorage.getItem("sort_t1")) {
-        this.data = this.data.filter(s=> s.temp > this.sort_t1 && s.temp < this.sort_t2 )
+        this.data = this.data.filter(s=> s.temp > this.sort_t1 && s.temp < this.sort_t2 );
       }
 
       if (localStorage.getItem("sort_m1")) {
-        this.data = this.data.filter(s=> s.moist > this.sort_m1 && s.moist < this.sort_m2 )
-      }
-
-      if (localStorage.getItem("sort_d1")) {
-        this.data = this.data.filter(s=> s.data_time > this.sort_d1.replace('T', ", ") && s.data_time < this.sort_d2.replace('T', ", ") )
+        this.data = this.data.filter(s=> s.moist > this.sort_m1 && s.moist < this.sort_m2 );
       }
 
       this.dataSource.data = this.data;
@@ -189,6 +185,9 @@ export class SensorsDataTableComponent implements AfterViewInit, OnInit {
       if (this.sort_d2 == null) {
         this.sort_d2 = '9999-01-01T12:00';
       }
+
+      this.sort_d1 = this.sort_d1 + ':00';
+      this.sort_d2 = this.sort_d2 + ':00';
 
       localStorage.setItem("sort_d1", this.sort_d1);
       localStorage.setItem("sort_d2", this.sort_d2);

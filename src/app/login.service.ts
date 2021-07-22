@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({providedIn:'root'})
 
@@ -9,22 +10,15 @@ export class LoginService {
   private_url: string = "https://smart-house-api.herokuapp.com/api/login?credentials=";
   loggedIn: boolean = false;
 
-  constructor(private http: HttpClient, private router:Router) { 
+  constructor(private http: HttpClient) { 
   }
 
-  Login(credentials:string) {
+  Login(credentials:string):Observable<boolean> {
     var url = this.private_url + credentials;
-    this.http.get<boolean>(url, {
+    return this.http.get<boolean>(url, {
       headers: new HttpHeaders ({
         'Access-Control-Allow-Origin' : 'https://smart-house-api.herokuapp.com',
         'Content-Type': 'application/json'
-      })}).subscribe(data => {
-      this.loggedIn = data;
-      if (data == true) {
-        localStorage.setItem("l", "1");
-        this.router.navigate(['/settings']);
-      } else {
-        localStorage.removeItem("l");
-      }})
+      })})
   }
 }
